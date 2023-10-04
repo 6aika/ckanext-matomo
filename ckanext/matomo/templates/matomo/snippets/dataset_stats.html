@@ -2,8 +2,8 @@
   <h2 class="module-heading">{{ _('Stats') }}</h2>
   <section class="module-content">
     {% set matomo_start_date = h.get_matomo_start_date() %}
-    <span>{{ _('Weekly visits for last 12 months') }}</span>
-    <span>{{ _('Data since {date}').format(date=matomo_start_date) }}</span>
+    <div>{{ _('Weekly visits for last 12 months') }}</div>
+    <div>{{ _('Data since {date}').format(date=matomo_start_date) }}</div>
     <div id="chart_div"></div>
     {% set visits = h.get_visits_for_dataset(pkg.id) %}
     {% set visits_in_last_12_months = h.get_visit_count_for_dataset(pkg.id, 'year') %}
