@@ -77,3 +77,6 @@ def get_years() -> List[str]:
 
 def get_current_date() -> datetime:
     return datetime.now()
+
+def get_matomo_start_date():
+    return config.get('ckanext-matomo.start_date', '')
