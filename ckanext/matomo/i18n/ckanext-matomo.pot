@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-matomo 0.0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-08-25 10:06+0000\n"
+"POT-Creation-Date: 2023-10-04 07:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,50 +56,57 @@ msgstr ""
 msgid "Stats"
 msgstr ""
 
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:4
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:5
 #: ckanext/matomo/templates/matomo/snippets/resource_stats.html:5
 msgid "Weekly visits for last 12 months"
 msgstr ""
 
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:13
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:29
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:18
-msgid "Visits"
-msgstr ""
-
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:14
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:18
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:15
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:19
-msgid "During last 30 days"
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:6
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:6
+#, python-format
+msgid "Data since %(date)s"
 msgstr ""
 
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:15
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:19
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:16
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:20
-msgid "During last 12 months"
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:31
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:19
+msgid "Visits"
 msgstr ""
 
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:16
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:20
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:17
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:21
-msgid "All time:"
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:16
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:20
+msgid "During last 30 days"
 msgstr ""
 
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:17
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:14
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:21
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:17
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:21
+msgid "During last 12 months"
+msgstr ""
+
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:18
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:22
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:18
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:22
+#, python-format
+msgid "Since %(date)s:"
+msgstr ""
+
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:19
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:15
 msgid "Download counts"
 msgstr ""
 
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:29
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:32
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:31
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:33
 msgid "Year"
 msgstr ""
 
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:29
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:32
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:31
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:33
 #: ckanext/matomo/templates/report/dataset_analytics.html:14
 #: ckanext/matomo/templates/report/dataset_analytics.html:42
 #: ckanext/matomo/templates/report/resource_analytics.html:11
@@ -107,8 +114,8 @@ msgstr ""
 msgid "Downloads"
 msgstr ""
 
-#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:31
-#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:34
+#: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:33
+#: ckanext/matomo/templates/matomo/snippets/resource_stats.html:35
 msgid "Week"
 msgstr ""
 
