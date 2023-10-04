@@ -70,7 +70,7 @@ msgstr "Veckovisa besök under de senaste 12 månaderna"
 #: ckanext/matomo/templates/matomo/snippets/resource_stats.html:6
 #, python-format
 msgid "Data since %(date)s"
-msgstr ""
+msgstr "Data fr.o.m. %(date)s"
 
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:15
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:31
@@ -98,7 +98,7 @@ msgstr "Under de senaste 12 månaderna"
 #: ckanext/matomo/templates/matomo/snippets/resource_stats.html:22
 #, python-format
 msgid "Since %(date)s:"
-msgstr ""
+msgstr "Fr.o.m. %(date)s:"
 
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:19
 #: ckanext/matomo/templates/matomo/snippets/resource_stats.html:15
