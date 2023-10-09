@@ -1,11 +1,14 @@
 <div class="module module-narrow">
   <h2 class="module-heading">{{ _('Stats') }}</h2>
   <section class="module-content">
+
     {% set matomo_start_date = h.get_matomo_start_date() %}
+    {% if h.show_download_graph() %}
     <div>{{ _('Weekly visits for last 12 months') }}</div>
     <div>{% trans date=matomo_start_date%}Data since {{ date }}{% endtrans %}</div>
     <div id="chart_div"></div>
-
+    {% endif %}
+  
     {% set visits =  h.get_visits_for_resource(res.id) %}
     {% set visit_count_last_12_month = h.get_visit_count_for_resource(res.id, 'year') %}
     {% set visit_count_last_30_days = h.get_visit_count_for_resource(res.id, 'month') %}
