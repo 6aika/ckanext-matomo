@@ -134,7 +134,7 @@ msgstr "Dataa julkaisseet tuottajat"
 #: ckanext/matomo/templates/report/dataset_analytics.html:10
 #: ckanext/matomo/templates/report/resource_analytics.html:10
 msgid "Organization"
-msgstr "Tuottaja"
+msgstr "Organisaatio"
 
 #: ckanext/matomo/templates/report/dataset_analytics.html:11
 #: ckanext/matomo/templates/report/dataset_analytics.html:39
