@@ -169,7 +169,7 @@ msgstr "Data"
 
 #: ckanext/matomo/templates/report/dataset_analytics.html:58
 msgid "No analytics found for most downloaded datasets."
-msgstr "Eniten ladatuista tietoaineistoista ei löytynyt statistiikkaa. "
+msgstr "Ladatuimmista datoista ei löytynyt statistiikkaa. "
 
 #: ckanext/matomo/templates/report/location_analytics.html:37
 msgid "Sessions by month"
