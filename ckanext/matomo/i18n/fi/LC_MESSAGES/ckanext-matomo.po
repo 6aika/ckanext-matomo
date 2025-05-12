@@ -223,7 +223,7 @@ msgstr "Tilastot ajalta"
 
 #: ckanext/matomo/templates/report/resource_analytics.html:25
 msgid "Most downloaded resources"
-msgstr "Ladatuimmat data-aineistot"
+msgstr "Ladatuimmat datat"
 
 #: ckanext/matomo/templates/report/resource_analytics.html:31
 msgid "Resource"
