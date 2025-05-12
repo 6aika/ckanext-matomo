@@ -235,7 +235,7 @@ msgstr "Viimeisin vierailu"
 
 #: ckanext/matomo/templates/report/resource_analytics.html:51
 msgid "No statistics found for most downloaded resources."
-msgstr "Eniten ladatuista data-aineistoista ei löytynyt statistiikkaa. "
+msgstr "Ladatuimmista datoista ei löytynyt statistiikkaa. "
 
 #: ckanext/matomo/templates/report/search_term_analytics.html:9
 msgid "Search term"
