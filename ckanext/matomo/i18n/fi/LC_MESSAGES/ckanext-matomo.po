@@ -227,7 +227,7 @@ msgstr "Ladatuimmat datat"
 
 #: ckanext/matomo/templates/report/resource_analytics.html:31
 msgid "Resource"
-msgstr "Data-aineisto"
+msgstr "Resurssi "
 
 #: ckanext/matomo/templates/report/resource_analytics.html:33
 msgid "Last accessed date"
