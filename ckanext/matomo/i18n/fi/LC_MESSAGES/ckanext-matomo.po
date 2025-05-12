@@ -35,11 +35,11 @@ msgstr "Katsotuimmat datat"
 
 #: ckanext/matomo/translations.py:10
 msgid "Matomo showing top datasets with most views by organization"
-msgstr "Tietoaineistot, joilla on eniten katselukertoja organisaatioittain"
+msgstr "Katsotuimmat datat organisaatioittain"
 
 #: ckanext/matomo/translations.py:11
 msgid "Most popular resources"
-msgstr "Ladatuimmat data-aineistot"
+msgstr "Ladatuimmat datat"
 
 #: ckanext/matomo/translations.py:12
 msgid "Matomo showing most downloaded resources"
