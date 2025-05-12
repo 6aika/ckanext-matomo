@@ -161,11 +161,11 @@ msgstr "Rajapintakutsujen määrä"
 
 #: ckanext/matomo/templates/report/dataset_analytics.html:32
 msgid "Most viewed datasets"
-msgstr "Katsotuimmat tietoaineistot"
+msgstr "Katsotuimmat datat"
 
 #: ckanext/matomo/templates/report/dataset_analytics.html:38
 msgid "Dataset"
-msgstr "Tietoaineisto"
+msgstr "Data"
 
 #: ckanext/matomo/templates/report/dataset_analytics.html:58
 msgid "No analytics found for most downloaded datasets."
