@@ -195,7 +195,7 @@ msgstr "Istuntoja yhteensä"
 
 #: ckanext/matomo/templates/report/location_analytics.html:71
 msgid "Audience locations"
-msgstr "Vierailijoiden sijainnit maittain"
+msgstr "Vierailijat maittain"
 
 #: ckanext/matomo/templates/report/location_analytics.html:72
 msgid "Collected since"
