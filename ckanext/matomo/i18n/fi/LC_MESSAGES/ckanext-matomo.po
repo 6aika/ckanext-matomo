@@ -43,7 +43,7 @@ msgstr "Ladatuimmat datat"
 
 #: ckanext/matomo/translations.py:12
 msgid "Matomo showing most downloaded resources"
-msgstr "Eniten ladatut tietoaineistot organisaatioittain"
+msgstr "Ladatuimmat datat organisaatioittain"
 
 #: ckanext/matomo/templates/report/search_term_analytics.html:3
 #: ckanext/matomo/translations.py:13
