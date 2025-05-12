@@ -247,4 +247,4 @@ msgstr "Haut yhteensä"
 
 #: ckanext/matomo/templates/report/search_term_analytics.html:22
 msgid "No analytics found for most popular search terms"
-msgstr "Tilastoja suosituimmista hakusanoista ei löytynyt"
+msgstr "Suosituimmista hakusanoista ei löytynyt statistiikkaa"
