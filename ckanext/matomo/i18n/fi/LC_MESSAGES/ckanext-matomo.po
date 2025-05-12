@@ -130,7 +130,7 @@ msgstr "edellinen viikko"
 #: ckanext/matomo/templates/report/dataset_analytics.html:5
 #: ckanext/matomo/templates/report/resource_analytics.html:5
 msgid "Organizations that have published data"
-msgstr "Dataa julkaisseet tuottajat"
+msgstr "Dataa julkaisseet organisaatiot"
 
 #: ckanext/matomo/templates/report/dataset_analytics.html:10
 #: ckanext/matomo/templates/report/resource_analytics.html:10
