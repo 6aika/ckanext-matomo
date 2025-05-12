@@ -67,7 +67,7 @@ msgstr "Tilastot"
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:5
 #: ckanext/matomo/templates/matomo/snippets/resource_stats.html:5
 msgid "Weekly visits for last 12 months"
-msgstr "Viikoittaiset vierailut viimeisten 12kk ajalta"
+msgstr "Viikoittaiset vierailut viimeisten 12 kk ajalta"
 
 #: ckanext/matomo/templates/matomo/snippets/dataset_stats.html:6
 #: ckanext/matomo/templates/matomo/snippets/resource_stats.html:6
