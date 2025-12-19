@@ -74,7 +74,7 @@ class MatomoPlugin(MixinPlugin, plugins.SingletonPlugin, DefaultTranslation):
             'get_years': helpers.get_years,
             'get_current_date': helpers.get_current_date,
             'get_matomo_start_date': helpers.get_matomo_start_date,
-            'matomo_show_download_graph': helpers.show_download_graph
+            'matomo_show_download_graph': helpers.show_download_graph,
             'get_downloads_in_date_range_for_resource': helpers.get_downloads_in_date_range_for_resource
         }
 
