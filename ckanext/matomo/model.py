@@ -482,6 +482,36 @@ class ResourceStats(Base):
         return visits
 
     @classmethod
+    def get_downloads_in_date_range_by_id(cls, resource_id: str, start_date: datetime, end_date: datetime):
+        weekly_visits = ((model.Session.query(
+                                            func.date_trunc('week', cls.visit_date).label('weekly'),
+                                            func.sum(cls.downloads).label('weekly_downloads'))
+                         .filter(cls.resource_id == resource_id,
+                                 cls.visit_date >= start_date,
+                                 cls.visit_date <= end_date))
+                         .group_by('weekly').order_by('weekly').all())
+
+
+        total_visits_and_downloads = (model.Session.query(func.sum(cls.visits).label('visits'),
+                                                         func.sum(cls.downloads).label('downloads'))
+                                      .filter(cls.resource_id == resource_id).first())
+
+        visits = [{'year': (start_date + timedelta(weeks=x)).year,
+                   'week': (start_date + timedelta(weeks=x)).isocalendar()[1],
+                   'downloads': 0} for x in range(0,52)]
+
+        for date in visits:
+            for week_visits in weekly_visits:
+                if date['year'] == week_visits.weekly.year and date['week'] == week_visits.weekly.isocalendar()[1]:
+                    date['downloads'] = week_visits.weekly_downloads
+
+        results = {'visits': visits,
+                   'total_visits': total_visits_and_downloads.visits if total_visits_and_downloads.visits else 0,
+                   'total_downloads': total_visits_and_downloads.downloads if total_visits_and_downloads.downloads else 0}
+
+        return results
+
+    @classmethod
     def get_stat_counts_by_id_and_date_range(cls, resource_id: str,
                                              start_date: Optional[datetime] = None,
                                              end_date: Optional[datetime] = None) -> Visit:

@@ -8,8 +8,7 @@
 {% block scripts %}
   {{ super() }}
   {% block matomo_event_tracking %}
-    {% set type = 'asset' if h.check_ckan_version(min_version="2.9.0", max_version="3.0.0") else 'resource' %}
-      {% include 'matomo/snippets/event_tracking_' ~ type ~ '.html' %}
+      {% include 'matomo/snippets/event_tracking_asset.html' %}
       <div class="js-hide" data-module="matomo"></div>
   {% endblock %}
 {% endblock %}

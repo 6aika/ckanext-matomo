@@ -1,12 +1,16 @@
 import logging
 import datetime
 
+from concurrent.futures import ThreadPoolExecutor
+
 from ckan.views.api import action as ckan_action
 import ckan.plugins.toolkit as toolkit
 
 from ckanext.matomo.matomo_api import MatomoAPI
 
+MAX_EVENTS_PER_MATOMO_REQUEST = 32
 log = logging.getLogger(__name__)
+tracking_executor = ThreadPoolExecutor(max_workers=1)
 
 
 def tracked_action(logic_function, ver=3):
@@ -51,23 +55,34 @@ def post_analytics(category, action, name, download=False):
     if download:
         event['download'] = event['url']
 
-    matomo_url = toolkit.config.get(u'ckanext.matomo.domain')
-    matomo_site_id = toolkit.config.get(u'ckanext.matomo.site_id')
-    test_mode = toolkit.config.get('ckanext.matomo.test_mode', False)
+
+    headers = {}
+    if toolkit.request.headers.get('DNT'):
+        headers = {'dnt': toolkit.request.headers.get('DNT')}
 
     log.info('Logging tracking event: %s', event)
-    toolkit.enqueue_job(matomo_track, [matomo_url, matomo_site_id, event, test_mode], queue='priority')
+    tracking_executor.submit(matomo_track, event, headers)
 
 
 # Required to be a free function to work with background jobs
-def matomo_track(matomo_url, matomo_site_id, event, test_mode):
+def matomo_track(event, extra_headers=None):
+    if extra_headers is None:
+        extra_headers = {}
+
+    # Gather events to send
     log = logging.getLogger('ckanext.matomo.tracking')
+    test_mode = toolkit.config.get('ckanext.matomo.test_mode', False)
+
     if test_mode:
-        log.info("Would send API event to Matomo: %s", event)
-    else:
-        log.info("Sending API event to Matomo: %s", event)
-        api = MatomoAPI(matomo_url, matomo_site_id, token_auth=toolkit.config.get('ckanext.matomo.token_auth'))
-        r = api.tracking(event)
-        if not r.ok:
-            log.warn('Error when posting tracking event to matomo: %s %s' % (r.status_code, r.reason))
-            log.warn('With request: %s' % r.url)
+        log.info(f"Would send API event to Matomo: {event}")
+        return
+
+    log.info(f"Sending API event to Matomo: {event}")
+    matomo_url = toolkit.config.get(u'ckanext.matomo.domain')
+    matomo_site_id = toolkit.config.get(u'ckanext.matomo.site_id')
+    token_auth = toolkit.config.get('ckanext.matomo.token_auth')
+    api = MatomoAPI(matomo_url, matomo_site_id, token_auth=token_auth)
+    r = api.tracking(event, extra_headers=extra_headers)
+    if not r.ok:
+        log.warn('Error when posting tracking events to matomo: %s %s' % (r.status_code, r.reason))
+        log.warn('With request: %s' % r.url)

@@ -7,7 +7,7 @@ import ckan.plugins.toolkit as toolkit
 from ckan.lib.plugins import DefaultTranslation
 
 from ckanext.matomo.cli import get_commands
-from ckanext.matomo import helpers, reports
+from ckanext.matomo import helpers
 import ckanext.matomo.logic as logic
 
 try:
@@ -74,7 +74,8 @@ class MatomoPlugin(MixinPlugin, plugins.SingletonPlugin, DefaultTranslation):
             'get_years': helpers.get_years,
             'get_current_date': helpers.get_current_date,
             'get_matomo_start_date': helpers.get_matomo_start_date,
-            'show_download_graph': helpers.show_download_graph
+            'matomo_show_download_graph': helpers.show_download_graph
+            'get_downloads_in_date_range_for_resource': helpers.get_downloads_in_date_range_for_resource
         }
 
     # IClick
@@ -100,6 +101,7 @@ class MatomoDatasetReport(plugins.SingletonPlugin):
 
     # IReport
     def register_reports(self):
+        from ckanext.matomo import reports
         return [reports.matomo_dataset_report_info()]
 
 class MatomoResourceReport(plugins.SingletonPlugin):
@@ -107,6 +109,7 @@ class MatomoResourceReport(plugins.SingletonPlugin):
 
     # IReport
     def register_reports(self):
+        from ckanext.matomo import reports
         return [reports.matomo_resource_report_info()]
 
 class MatomoLocationReport(plugins.SingletonPlugin):
@@ -114,6 +117,7 @@ class MatomoLocationReport(plugins.SingletonPlugin):
 
     # IReport
     def register_reports(self):
+        from ckanext.matomo import reports
         return [reports.matomo_location_report_info()]
 
 
@@ -122,4 +126,5 @@ class MatomoSearchTermsReport(plugins.SingletonPlugin):
 
     # IReport
     def register_reports(self):
+        from ckanext.matomo import reports
         return [reports.matomo_most_popular_search_terms_info()]

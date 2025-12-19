@@ -4,8 +4,8 @@ jobs:
   ruff:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - name: Install requirements
@@ -17,16 +17,16 @@ jobs:
     needs: ruff
     strategy:
       matrix:
-        ckan-version: [2.9]
+        ckan-version: ["2.9", "2.10"]
       fail-fast: false
 
     name: CKAN ${{ matrix.ckan-version }}
     runs-on: ubuntu-latest
     container:
-      image: openknowledge/ckan-dev:${{ matrix.ckan-version }}
+      image: ckan/ckan-dev:${{ matrix.ckan-version }}
     services:
       solr:
-        image: ckan/ckan-solr-dev:${{ matrix.ckan-version }}
+        image: ckan/ckan-solr:${{ matrix.ckan-version }}
       postgres:
         image: ckan/ckan-postgres-dev:${{ matrix.ckan-version }}
         env:
@@ -44,7 +44,7 @@ jobs:
       CKAN_REDIS_URL: redis://redis:6379/1
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install requirements
         run: |
           pip install -r requirements.txt
@@ -63,5 +63,13 @@ jobs:
           ckan -c test.ini matomo init_db
       - name: Run tests
         run: pytest --ckan-ini=test.ini --cov=ckanext.matomo --disable-warnings ckanext/matomo/tests
-      - name: Coveralls
-        uses: AndreMiras/coveralls-python-action@develop
+
+      - name: install codecov requirements
+        run: |
+          apk add gpg gpg-agent
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          os: alpine
